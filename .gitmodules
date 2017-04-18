@@ -1,0 +1,10 @@
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
+
+[submodule ".tmux/tmux-powerline"]
+    path = .tmux/tmux-powerline
+    url = https://github.com/Lokaltog/powerline
+[submodule ".zsh/antigen"]
+	path = .zsh/antigen
+	url = https://github.com/zsh-users/antigen

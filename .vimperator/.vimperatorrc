@@ -1,0 +1,3 @@
+"j/kの移動量かえる"
+noremap j 4<C-e>
+noremap k 4<C-y>

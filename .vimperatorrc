@@ -1,0 +1,80 @@
+"==========================
+"Mapping
+"==========================
+
+"switch ; to :
+noremap ; :
+noremap : ;
+
+"Ctl-rで再起動"
+map <C-r> <esc> ;restart<cr>
+
+"上下移動の数値
+noremap j 9j
+noremap k 9k
+
+" .vimperatorrcを再読み込み(:restartしなくてもいい)
+map <silent> <Leader>R :mapc<CR>:cmapc<CR>:imapc<CR>:so ~/.vimperatorrc<CR>
+
+"タブ移動
+noremap s gt
+noremap a gT
+
+"nで戻る mで進む
+map n <A-Left>
+map m <A-Right>
+
+"終了
+map Q ZQ 
+
+"Reload .vimperatorrc
+noremap ,R :source ~/.vimperatorrc<CR>
+
+"bでタブとじ
+noremap b :tabclose<CR>
+
+"===================
+"Options
+"===================
+
+"検索で大文字と小文字無視
+set ignorecase
+
+"テキストボックスにフォーカスが合わないようにする
+set focuscontent
+
+"ブラウザのタイトル
+set titlestring=Firefox
+
+"検索ワードをハイライト
+set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"NoBeep
+set visualbell
+highlight Bell display:none
+
+"==================
+"colorscheme
+"==================
+"colorscheme bigchu
+
+"==================
+"hintchars
+"==================
+set hintchars=ifjklasdhguonmerwc
+hi Hint z-index:5000; font-size:14px; color:white; background-color:red; border-color:ButtonShadow; border-width:0px; border-style:solid; padding:0px 2px 0px 2px; position:absolute; font-family: Menlo, Consolas, Monaco, monospace; text-transform: uppercase;
+
+"history
+set history=10000
+
+" suggest
+set suggestengines=google
+
+
+"=============
+" fix freeze
+"=============
+":winclose
+":winopen
+":open http://www.google.co.jp
