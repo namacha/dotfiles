@@ -1,11 +1,18 @@
 let g:netrw_dirhistmax  =10
+<<<<<<< HEAD
+let g:netrw_dirhist_cnt =5
+=======
 let g:netrw_dirhist_cnt =9
+>>>>>>> a842571793bc9fdc39b7f5d29f190dd4a4040465
 let g:netrw_dirhist_1='/Users/ayu/pro/py/torifolium/.hg'
 let g:netrw_dirhist_2='/Users/ayu/.vimperator'
 let g:netrw_dirhist_3='/opt'
 let g:netrw_dirhist_4='/Users/ayu/pro/py/curses'
 let g:netrw_dirhist_5='/Users/ayu/pro/py'
+<<<<<<< HEAD
+=======
 let g:netrw_dirhist_6='/Users/ayu/.tmux'
 let g:netrw_dirhist_7='/Users/ayu/dotfiles/.zsh'
 let g:netrw_dirhist_8='/Users/ayu/tmp/morse_chat/templates'
 let g:netrw_dirhist_9='/Users/ayu/.zsh'
+>>>>>>> a842571793bc9fdc39b7f5d29f190dd4a4040465

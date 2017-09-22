@@ -1,6 +1,9 @@
 badwolf
 iceberg.vim
+<<<<<<< HEAD
+=======
 jedi-vim
+>>>>>>> a842571793bc9fdc39b7f5d29f190dd4a4040465
 jellybeans.vim
 molokai
 neobundle.vim
@@ -12,10 +15,15 @@ unite.vim
 vim-flake8
 vim-gocode
 vim-hybrid
+<<<<<<< HEAD
+vim-monokai
+vim-python-pep8-indent
+=======
 vim-latex
 vim-monokai
 vim-python-pep8-indent
 vim-surround
+>>>>>>> a842571793bc9fdc39b7f5d29f190dd4a4040465
 vimerl
 vimfiler
 vimproc.vim
