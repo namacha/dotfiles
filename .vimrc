@@ -26,52 +26,61 @@ set notitle
 set ruler
 
 "#=========================
-" neobundle.vim
+" plug.vim
 "#=========================
 
 set nocompatible
 filetype plugin indent off
 
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  set rtp+=~/.vim/plugged/vim-plug
+  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+    echo 'install vim-plug...'
+    call system('mkdir -p ~/.vim/plugged/vim-plug')
+    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+  end
 endif
 
+
+
 " ==========================
-"   NeoBundle, Repository
+"   Plugins
 " ==========================
 
-NeoBundle "Shougo/neobundle.vim"
-NeoBundle "Shougo/neocomplcache"
-"NeoBundle "davidhalter/jedi-vim"
-"NeoBundle "Yggdroot/indentLine"
-"NeoBundle "nathanaelkane/vim-indent-guides"
-NeoBundle "Shougo/unite.vim"
-NeoBundle "Shougo/vimproc.vim", {
+call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-plug',
+        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+Plug 'Shougo/neocomplcache'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'Yggdroot/indentLine'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', {
     \ 'build': {
       \ 'mac': 'make -f make_mac.mak',
       \ 'unix': 'make -f make_unix.mak',
     \ },
 \}
 
-NeoBundle "tpope/vim-surround"
+Plug 'tpope/vim-surround'
 
-NeoBundle "nvie/vim-flake8"
-NeoBundle "jimenezrick/vimerl"
-NeoBundle "majutsushi/tagbar"
-NeoBundle "vim-scripts/spec.vim"
-NeoBundle "Blackrush/vim-gocode"
-NeoBundle "andrewschleifer/nu-vim"
-NeoBundleLazy "Shougo/vimfiler"
-NeoBundle "hynek/vim-python-pep8-indent"
+Plug 'nvie/vim-flake8'
+Plug 'jimenezrick/vimerl'
+Plug 'majutsushi/tagbar'
+Plug 'vim-scripts/spec.vim'
+Plug 'Blackrush/vim-gocode'
+Plug 'andrewschleifer/nu-vim'
+Plug 'Shougo/vimfiler'
+Plug 'hynek/vim-python-pep8-indent'
 
-NeoBundle "w0ng/vim-hybrid"
-NeoBundle "nanotech/jellybeans.vim"
-NeoBundle "sickill/vim-monokai"
-NeoBundle "tomasr/molokai"
-NeoBundle "sjl/badwolf"
-NeoBundle "cocopon/iceberg.vim"
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plug 'w0ng/vim-hybrid'
+Plug 'nanotech/jellybeans.vim'
+Plug 'sickill/vim-monokai'
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+Plug 'cocopon/iceberg.vim'
+Plug 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+call plug#end()
 
 
 filetype plugin indent on
