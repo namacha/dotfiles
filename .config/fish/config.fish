@@ -1,7 +1,9 @@
 function cd
   builtin cd $argv
   set -l cd_status $status
-  ls
+  if [ $cd_status -eq 0 ]
+    ls
+  end
   return $status
 end
 
@@ -12,6 +14,13 @@ end
 
 
 set -x PATH $HOME/bin $PATH
+set -x fish_user_paths "/usr/local/sbin" $fish_user_paths
+
+#set -x PATH $HOME/.pyenv/versions/2.7.11/bin
+pyenv init - | sed -e 's/setenv/set -x/g' > /tmp/pyenv_tmp
+source /tmp/pyenv_tmp
+rm /tmp/pyenv_tmp
+
 alias sl='ssh lhome'
 alias hh='ssh harakiri'
 alias nasm='/usr/local/bin/nasm'
