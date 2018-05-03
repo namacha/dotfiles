@@ -1,4 +1,5 @@
 #!/bin/sh
+mkdir $HOME/.vim-backup
 cd $(dirname $0)
 for dotfile in .?*
 do
