@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/local/bin/fish
+
 cd $(dirname $0)
 for dotfile in .?*
 do

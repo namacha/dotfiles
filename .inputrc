@@ -1,2 +1,4 @@
 set editing-mode vi
 Tab: complete
+
+"\C-n":history-search-forward

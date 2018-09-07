@@ -71,8 +71,8 @@ setopt auto_pushd # save history of cd ?
 #      LS
 #======================
 LSCOLORS=DxGxcxdxCxegedabagacad
-alias ls='gls -G --color=always'
-alias ll='gls --color=always -hla'
+alias ls='/bin/ls -G'
+alias ll='/bin/ls -G -hla'
 zstyle ':completion:*' list-colors ''
 
 
@@ -128,22 +128,28 @@ autoload predict-on
 # ======================
 #   Plugins, antigen
 # ======================
+
+#if [ -f ~/.zplug/init.zsh ]; then
+#    source ~/.zplug/init.zsh
+#fi
+
+
 #if [ -f ~/.zshrc.antigen ]; then
 #    source ~/.zshrc.antigen
 #fi
 
-if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-    bindkey "^J" autosuggest-accept
-fi
+#if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+#    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+#    bindkey "^J" autosuggest-accept
+#fi
 
 #if [ -f `brew --prefix`/etc/autojump.zsh ]; then
 #    . `brew --prefix`/etc/autojump.zsh
 #fi
 
-#if [ -f ~/.zsh/plugin/incr-0.2.zsh ]; then
-#    source ~/.zsh/plugin/incr-0.2.zsh
-#fi
+if [ -f ~/.zsh/plugin/incr-0.2.zsh ]; then
+    source ~/.zsh/plugin/incr-0.2.zsh
+fi
 
 #source ~/.zsh/plugin/auto-fu.zsh; zle-line-init(){auto-fu-init; }; zle -N zle-line-init
 #zstyle ':auto-fu:var' postdisplay $''

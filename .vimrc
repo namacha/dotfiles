@@ -80,10 +80,21 @@ Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'cocopon/iceberg.vim'
 Plug 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+Plug 'dag/vim-fish'
+Plug 'dag/vim2hs'
+
+Plug 'ElmCast/elm-vim'
+
+Plug 'glabra/casl2.vim'
+
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
+let g:elm_format_autosave = 1
 
 filetype plugin indent on
+
+autocmd BufRead,BufNewFile *.cas set filetype=casl2
 
 "swap semicolon for colon
 noremap ; :
