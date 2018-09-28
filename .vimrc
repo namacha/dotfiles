@@ -88,6 +88,8 @@ Plug 'ElmCast/elm-vim'
 Plug 'glabra/casl2.vim'
 
 Plug 'pangloss/vim-javascript'
+
+Plug 'vim-scripts/sudo.vim'
 call plug#end()
 
 let g:elm_format_autosave = 1
