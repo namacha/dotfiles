@@ -1,0 +1,32 @@
+# Brewfile 🍺
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew git
+brew mas
+brew python
+brew readline
+brew ruby
+brew tmux
+brew vim
+brew zsh
+
+tap homebrew/cask
+cask atom
+cask supercollider
+
+tap caskroom/cask
+cask dropbox
+cask google-chrome
+cask google-japanese-ime
+cask iterm2
+cask steam
+cask slack
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+#appstore 803453959 Slack (3.3.7)
+#appstore 1278508951 Trello (2.10.8)
