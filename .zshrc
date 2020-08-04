@@ -12,7 +12,7 @@
 #echo Welcome to Darwin!  # Oldschool mac style
 
 
-for conf in `ls -1d .zsh/conf.d/*` 
+for conf in `ls -1d $HOME/.zsh/conf.d/*` 
 do
   source $conf
 done
