@@ -48,12 +48,8 @@ endif
 " ==========================
 
 call plug#begin('~/.vim/plugged')
-  Plug 'junegunn/vim-plug',
+Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
-Plug 'Shougo/neocomplcache'
-"Plug 'davidhalter/jedi-vim'
-"Plug 'Yggdroot/indentLine'
-"Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', {
     \ 'build': {
@@ -62,114 +58,44 @@ Plug 'Shougo/vimproc.vim', {
     \ },
 \}
 
+" completion, etc.
+Plug 'Shougo/neocomplcache'
 Plug 'tpope/vim-surround'
-
-Plug 'nvie/vim-flake8'
-Plug 'jimenezrick/vimerl'
 Plug 'majutsushi/tagbar'
-Plug 'vim-scripts/spec.vim'
-Plug 'Blackrush/vim-gocode'
-Plug 'andrewschleifer/nu-vim'
 Plug 'Shougo/vimfiler'
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'vim-scripts/sudo.vim'
 
+" colorscheme
 Plug 'w0ng/vim-hybrid'
 Plug 'nanotech/jellybeans.vim'
 Plug 'sickill/vim-monokai'
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'cocopon/iceberg.vim'
+
+" python
+Plug 'nvie/vim-flake8'
+Plug 'hynek/vim-python-pep8-indent'
+
+"go
+Plug 'Blackrush/vim-gocode'
+
+" nu lang
+Plug 'andrewschleifer/nu-vim'
+
 Plug 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Plug 'dag/vim-fish'
 Plug 'dag/vim2hs'
 
-Plug 'ElmCast/elm-vim'
-
-Plug 'glabra/casl2.vim'
-
+" js
 Plug 'pangloss/vim-javascript'
 
-Plug 'vim-scripts/sudo.vim'
 call plug#end()
-
-let g:elm_format_autosave = 1
-
-filetype plugin indent on
-
-autocmd BufRead,BufNewFile *.cas set filetype=casl2
-
-"swap semicolon for colon
-noremap ; :
-noremap : ;
-
-" Tab Completion
-map <Tab> <C-P>
-
-set nowrap
-set nu
-set hlsearch
-"nmap <Esc><Esc> :noh<CR>
-noremap <Esc><Esc> :nohlsearch<CR><Esc>
-hi Pmenu ctermbg=4
-hi PmenuSel ctermbg=1
-hi PMenuSbar ctermbg=4
-
-
-filetype plugin on
-autocmd FileType python setl autoindent
-autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 "softtabstop=2
-
-
-"run python code on vim
-function! s:Exec()
-    exe "!" . &ft . " %"        
-:endfunction         
-command! Exec call <SID>Exec() 
-map <silent> <C-P> :call <SID>Exec()<CR>
-
-"TagbarOpen
-
-"Crontab設定
-set backupskip=/tmp/*,/private/tmp/*
-
-let g:neocomplcache_enable_at_startup = 1
-imap <C-k> <Plug>(neocomplcache_snippets_expand)
-smap <C-k> <Plug>(neocomplcache_snippets_expand)
-set completeopt-=preview
-
-let g:ref_alc_cmd='lynx -dump -nonumbers %s'
-
-"iabbr
-iabbr #= #========================
+"=====================================================
 
 filetype plugin indent on
 
-set shiftwidth=2
-
-" vim-latex
-set grepprg=grep\ -nH\ $*
-set shellslash
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_dvi = 'platex --interaction=nonstopmode $*'
-let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
-let g:Tex_FormatDependency_pdf = 'dvi,pdf'
-let g:Tex_ViewRule_pdf = 'open -a Preview.app'
-
-"=nu
-augroup NuValidator
-  autocmd!
-  autocmd FileType html compiler nu-validator
-augroup END
-
-"au BufNewFile,BufRead *.nu,*.nujson,Nukefile
-setf nu
-
-"scheme
-autocmd FileType scheme nnoremap <buffer> ,t :!gosh %<CR>
-language C
-
-
+" ======== Misc Settings =============
 " disable mouse
 set mouse=
 
@@ -177,29 +103,42 @@ set mouse=
 set visualbell t_vb=
 set noerrorbells
 
-" PEP8
-let g:flake8_ignore="E111,E228"
-
 set nocompatible
 
-" Changelog
-"let spec_chglog_format = "%c ayu <mac.ayu15@gmail.com.>"
-"au FileType spec map <buffer> <LocalLeader>c <Plug>SpecCahngelog
-"au BufNewFile,BufRead *.changelog setf spec
-let g:changelog_timeformat = "%Y-%m-%d %H:%M"
-let g:changelog_username = "Ayu <mac.ayu15@gmail.com>"
-
-" template
-autocmd BufNewFile *.py 0r $HOME/.vim/template/python.txt
-
-" scroll
-"imap jjjj <esc>
-"imap kkkk <esc>
-"imap hhhh <esc>
-"imap llll <esc>
+" map jj to Esc when insert mode
 inoremap jj <Esc>
 
 set backspace=indent,eol,start
+"swap semicolon for colon
+noremap ; :
+noremap : ;
+
+set nowrap
+set number
+set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
+set nofoldenable  " disable folding
+
+" Enable TrueColor
+set termguicolors  " TrueColor
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" =============================================
+
+
+set backupskip=/tmp/*,/private/tmp/*
+
+let g:neocomplcache_enable_at_startup = 1
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+set completeopt-=preview
+
+"iabbr
+iabbr #= #========================
+
+set shiftwidth=4
+
 
 
 " ===============================
@@ -221,7 +160,56 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 
 
+
+
 " ======================
-"  Comment
+"  Language Specific Settings
 "  =====================
-autocmd FileType python :inoremap # X#
+
+"  ====================== Python
+filetype plugin on
+autocmd FileType python setl autoindent
+autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 "softtabstop=2
+" PEP8
+let g:flake8_ignore="E111,E228"
+
+" Comment
+
+autocmd FileType python :inoremap # #
+
+"run python code on vim
+function! s:Exec()
+    exe "!" . &ft . " %"        
+:endfunction         
+command! Exec call <SID>Exec() 
+map <silent> <C-P> :call <SID>Exec()<CR>
+
+
+" ================= LaTeX
+" vim-latex
+set grepprg=grep\ -nH\ $*
+set shellslash
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_dvi = 'platex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
+let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+let g:Tex_ViewRule_pdf = 'open -a Preview.app'
+
+"==================== nu
+augroup NuValidator
+  autocmd!
+  autocmd FileType html compiler nu-validator
+augroup END
+
+"au BufNewFile,BufRead *.nu,*.nujson,Nukefile
+setf nu
+
+"=================== Scheme
+autocmd FileType scheme nnoremap <buffer> ,t :!gosh %<CR>
+language C
+
+" ================== Go
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal tabstop=4
+autocmd FileType go setlocal shiftwidth=4
