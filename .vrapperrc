@@ -1,0 +1,18 @@
+noremap ; :
+noremap : ;
+inoremap jj <ESC>
+
+set incsearch
+set hlsearch
+
+set ignorecase
+set smartcase
+
+set imd
+
+
+noremap <Esc><Esc> :noh<CR>
+
+noremap <S-r> :source ~/.vrapperrc<CR>:noh<CR>
+
+noremap [ %
