@@ -1,0 +1,10 @@
+Font=HackGenNerd Console
+FontHeight=11
+Locale=ja_JP
+Charset=UTF-8
+FontSmoothing=full
+Columns=130
+Rows=35
+BellType=0
+Transparency=low
+Term=xterm-256color
