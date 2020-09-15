@@ -25,6 +25,13 @@ set ignorecase
 set notitle
 set ruler
 
+" =====================
+" encodings
+" =====================
+set encoding=utf-8
+set fileencodings=euc-jp,sjis,utf-8
+set fileformats=unix,mac,dos
+
 "#=========================
 " plug.vim
 "#=========================
@@ -57,6 +64,8 @@ Plug 'Shougo/vimproc.vim', {
       \ 'unix': 'make -f make_unix.mak',
     \ },
 \}
+
+Plug 'Shougo/vimfiler'
 
 " completion, etc.
 Plug 'Shougo/neocomplcache'
@@ -151,6 +160,14 @@ set cursorline
 "      Colorscheme
 " ===============================
 colorscheme monokai
+colorscheme iceberg
+
+
+" ===============================
+"      Aliases
+" ===============================
+"command Esjis e ++enc=sjis
+command Vf VimFiler -split -simple -winwidth=35 -no-quit
 
 
 " ======================
