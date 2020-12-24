@@ -21,7 +21,6 @@ set backup
 set backupdir=$HOME/.vim-backup
 let &directory = &backupdir
 
-set ignorecase
 set notitle
 set ruler
 
@@ -37,7 +36,6 @@ set fileformats=unix,mac,dos
 "#=========================
 
 set nocompatible
-filetype plugin indent off
 
 if has('vim_starting')
   set rtp+=~/.vim/plugged/vim-plug
@@ -89,15 +87,20 @@ Plug 'hynek/vim-python-pep8-indent'
 "go
 Plug 'Blackrush/vim-gocode'
 
-" nu lang
-Plug 'andrewschleifer/nu-vim'
 
 Plug 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Plug 'dag/vim-fish'
 Plug 'dag/vim2hs'
 
 " js
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'mxw/vim-jsx'
+"Plug 'posva/vim-vue'
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+
+Plug 'rhysd/clever-f.vim'
 
 call plug#end()
 "=====================================================
@@ -124,8 +127,18 @@ noremap : ;
 
 set nowrap
 set number
+
+
+" =============================================
+" ================= Search ====================
+" =============================================
 set hlsearch
+set incsearch
+set ignorecase
 noremap <Esc><Esc> :nohlsearch<CR><Esc>
+set shortmess-=S
+
+
 set nofoldenable  " disable folding
 
 " Enable TrueColor
@@ -177,6 +190,11 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 
 
+" ======================
+"  Indent
+"  =====================
+set smartindent
+
 
 
 " ======================
@@ -185,7 +203,7 @@ let g:vimfiler_safe_mode_by_default = 0
 
 "  ====================== Python
 filetype plugin on
-autocmd FileType python setl autoindent
+"autocmd FileType python setl autoindent
 autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 "softtabstop=2
 " PEP8
