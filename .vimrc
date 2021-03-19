@@ -28,7 +28,7 @@ set ruler
 " encodings
 " =====================
 set encoding=utf-8
-set fileencodings=euc-jp,sjis,utf-8
+set fileencodings=utf-8,euc-jp,sjis
 set fileformats=unix,mac,dos
 
 "#=========================
@@ -71,6 +71,7 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/vimfiler'
 Plug 'vim-scripts/sudo.vim'
+Plug 'rhysd/clever-f.vim'
 
 " colorscheme
 Plug 'w0ng/vim-hybrid'
@@ -88,7 +89,6 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'Blackrush/vim-gocode'
 
 
-Plug 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 Plug 'dag/vim-fish'
 Plug 'dag/vim2hs'
 
@@ -100,7 +100,6 @@ Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
-Plug 'rhysd/clever-f.vim'
 
 call plug#end()
 "=====================================================
@@ -143,8 +142,8 @@ set nofoldenable  " disable folding
 
 " Enable TrueColor
 set termguicolors  " TrueColor
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " =============================================
 
@@ -173,7 +172,7 @@ set cursorline
 "      Colorscheme
 " ===============================
 colorscheme monokai
-colorscheme iceberg
+"colorscheme iceberg
 
 
 " ===============================
@@ -194,6 +193,8 @@ let g:vimfiler_safe_mode_by_default = 0
 "  Indent
 "  =====================
 set smartindent
+set shiftwidth=4
+set expandtab
 
 
 
