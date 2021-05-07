@@ -100,6 +100,11 @@ Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
+" multi language syntax highlight
+Plug 'sheerun/vim-polyglot'
+
+Plug 'vim-scripts/vcscommand.vim'
+
 
 call plug#end()
 "=====================================================
@@ -197,6 +202,16 @@ set shiftwidth=4
 set expandtab
 
 
+" ======================
+"   KeyMaps
+"  =====================
+let mapleader = "\<Space>"
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader><Leader> V
+nnoremap <CR> G
+nnoremap <Leader>s :%s
+
 
 " ======================
 "  Language Specific Settings
@@ -209,6 +224,9 @@ autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,exc
 autocmd FileType python setl expandtab tabstop=4 shiftwidth=4 "softtabstop=2
 " PEP8
 let g:flake8_ignore="E111,E228"
+
+" javascript
+autocmd FileType javascript setl noexpandtab tabstop=4 list
 
 " Comment
 
@@ -232,14 +250,6 @@ let g:Tex_CompileRule_pdf = 'dvipdfmx $*.dvi'
 let g:Tex_FormatDependency_pdf = 'dvi,pdf'
 let g:Tex_ViewRule_pdf = 'open -a Preview.app'
 
-"==================== nu
-augroup NuValidator
-  autocmd!
-  autocmd FileType html compiler nu-validator
-augroup END
-
-"au BufNewFile,BufRead *.nu,*.nujson,Nukefile
-setf nu
 
 "=================== Scheme
 autocmd FileType scheme nnoremap <buffer> ,t :!gosh %<CR>
