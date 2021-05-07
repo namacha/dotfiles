@@ -1,0 +1,39 @@
+shell:
+  #program: "cmd.exe /c \"set MSYSTEM=MINGW64 && C:\\msys64\\usr\\bin\\zsh.exe --login \" "
+  program: "wsl ~"
+
+window:
+  padding:
+    x: 0
+    y: 0
+  decorations: full
+
+font:
+  normal:
+    family: "HackGenNerd Console"
+    style: Regular
+  bold:
+    family: "HackGenNerd Console"
+    style: Bold
+  glyph_offset:
+    x: 1
+  size: 12
+
+background_opacity: 0.95
+
+mouse:
+  hide_when_typing: true
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+cursor:
+  style: Beam
+
+selection:
+  save_to_clipboard: true
+
+# key_binedings:
+#   - { key: V, mods: Command, action: Paste}
+#   - { key: C, mods: Command, action: }
