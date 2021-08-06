@@ -14,7 +14,7 @@ local DEFAULT=$'%{\e[1;m%}'
 # ============================
 ROOTUESRCOLOR=green
 USERCOLOR=red
-DIRCOLOR=green
+DIRCOLOR=white
 SUCCESSCOLOR=cyan
 FAILCOLOR=red
 SUCCESS="'_'"
@@ -23,18 +23,26 @@ FAIL=">_<"
 FAIL="✖>_<✖"
 
 
+# ✖╹◡╹✖ wsl:.zsh/ ayu$
+# wsl: prog/ ❯
+
+SUCCESS="%F{red}❯%F{yellow}❯%F{cyan}❯%f"
+FAIL="%F{red}❯❯❯%f"
+
 STATSUCCESS="%F{$SUCCESSCOLOR}$SUCCESS%f "
 STATFAIL="%F{$FAILCOLOR}$FAIL%f "
 
 case ${UID} in
-0)
+0)  # root user
 #PROMPT="%m:./ $GREEN$LOGNAME$DEFAULT# "
 MAINPROMPT="%m:%F{$DIRCOLOR}%./%f %F{$ROOTUESRCOLOR}%n%f# "
 
   ;;
 *)
-MAINPROMPT="%m:%F{$DIRCOLOR}%./%f %F{$USERCOLOR}%n%f$ "
+MAINPROMPT="wsl:%F{$DIRCOLOR}%./%f %F{$USERCOLOR}%n%f$ "
+MAINPROMPT="%F{$DIRCOLOR}%./%f "
 esac
 
 PROMPT="%(?.$STATSUCCESS$MAINPROMPT.$STATFAIL$MAINPROMPT)"
+PROMPT="%(?.$MAINPROMPT$STATSUCCESS.$MAINPROMPT$STATFAIL)"
 SPROMPT="$fg[green]%^[-_-< Did you mean $fg[red]%r$fg[green] ? [n,y,a,e]: "
