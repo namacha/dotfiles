@@ -1,3 +1,6 @@
+#zmodload zsh/zprof && zprof
+
+
 LOCAL_BIN=$HOME/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
@@ -10,3 +13,6 @@ export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
 
 alias camo='export PROMPT=`echo $PROMPT | sed -e s/%n/aaa/g`'
+. "$HOME/.cargo/env"
+
+export EDITOR=/usr/bin/nvim
