@@ -22,6 +22,37 @@ SUCCESS="✖╹◡╹✖"
 FAIL=">_<"
 FAIL="✖>_<✖"
 
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable svn
+zstyle ':vcs_info:*' branchformat '%b:r%r'
+zstyle ':vcs_info:*' formats '[%s]%b'
+zstyle ':vcs_info:*' actionformats '[%s]%b|%a'
+RPROMPT="%1(v|%1v|)"
+
+
+local _pre=''
+_preexec() {
+  _pre="$1"
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook preexec _preexec
+
+precmd() {
+  _r=$?
+  case "${_pre}" in
+    cd*|svn\ up*|svn\ sw*)
+      export RPROMPT=""
+      if test -d .svn
+      then
+        LANG=en_US.UTF-8 vcs_info
+        [[ -n "$vcs_info_msg_0_" ]] && export RPROMPT=[`echo $vcs_info_msg_0_ | awk -F ':' '{print $2}'`]
+#        [[ -n "$vcs_info_msg_0_" ]] && export PROMPT="($rev)"$PROMPT
+      fi
+      ;;
+  esac
+
+  return ${_r}
+}
 
 # ✖╹◡╹✖ wsl:.zsh/ ayu$
 # wsl: prog/ ❯
@@ -46,3 +77,4 @@ esac
 PROMPT="%(?.$STATSUCCESS$MAINPROMPT.$STATFAIL$MAINPROMPT)"
 PROMPT="%(?.$MAINPROMPT$STATSUCCESS.$MAINPROMPT$STATFAIL)"
 SPROMPT="$fg[green]%^[-_-< Did you mean $fg[red]%r$fg[green] ? [n,y,a,e]: "
+
