@@ -300,6 +300,11 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader><Leader> V
 nnoremap <CR> G
 nnoremap <Leader>s :%s
+nnoremap <Leader>v <C-w>v
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>l <C-w>l
+
+
 
 
 " ======================
